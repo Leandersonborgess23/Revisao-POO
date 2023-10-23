@@ -1,0 +1,36 @@
+# O que vamos estudar aqui?
+
+# • import os
+# • getcwd/chdir
+# • open/ readline /close
+# • Lendo um arquivo
+# • Verificando se o arquivo existe
+# • Escrevendo em um arquivo
+
+
+# "Import os" serve para importar a biblioteca padrão que permitirá definir o diretório de trabalho dos arquivos.
+
+# getcwd: mostra o diretório de trabalho atual.
+# chdir: muda o diretório de trabalho atual de acordo com a localização passada por parâmetro.
+# Atenção!!! As barras que definem o novo caminho devem estar invertidas!
+
+# open: utilizado para abrir um arquivo.
+# readline: permite ler uma linha do arquivo
+# close: utilizado para fechar um arquivo.
+
+dados = open("dialogo.txt")
+print(dados.readline(), end="")
+dados.close
+
+# Usando o for para ler todas as linhas do arquivos.
+
+dados = open("dialogo.txt")
+for cada_linha in dados:
+    print(cada_linha, end="")
+
+
+# Verificando se o arquivo existe:
+# path.exists
+
+if os.path.exist("dialogo.txt"):
+    dados=open("dialogo.txt")
