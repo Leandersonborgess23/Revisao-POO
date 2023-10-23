@@ -1,0 +1,74 @@
+#Pilares da OO
+
+#Abstração: Abstração é um dos conceitos fundamentais da programação orientada a objetos e é uma técnica que permite representar objetos do mundo real em um programa de computador. Em Python, a abstração é implementada por meio de classes e objetos.
+
+#exemplo:
+
+from abc import ABC, abstractmethod
+
+#Classe abstrata que representa um animal
+class Animal(ABC):
+    def __init__(self, nome, idade):
+        self.nome = nome
+        self.idade = idade
+    
+    @abstractmethod
+    def fazer_som(self):
+        pass
+
+#Classe que representa um cachorro, que herda da classe Animal
+class Cachorro(Animal):
+    def __init__(self, nome, idade, raca):
+        super().__init__(nome, idade)
+        self.raca = raca
+    
+    def fazer_som(self):
+        print("Au au!")
+
+#Classe que representa um gato, que herda da classe Animal
+class Gato(Animal):
+    def __init__(self, nome, idade, cor):
+        super().__init__(nome, idade)
+        self.cor = cor
+    
+    def fazer_som(self):
+        print("Miau!")
+
+#Criando objetos da classe Cachorro e Gato
+cachorro = Cachorro("Rex", 3, "Labrador")
+gato = Gato("Mimi", 2, "Branco")
+
+#Chamando o método fazer_som dos objetos
+cachorro.fazer_som()  #Saída: Au au!
+gato.fazer_som()  #Saída: Miau!
+
+
+#Polimorfismo: é um conceito importante na programação orientada a objetos e está relacionado à capacidade de um objeto de ser referenciado de várias formas diferentes. Em Python, o polimorfismo é implementado por meio de herança e da capacidade de uma classe derivada substituir um método de sua classe base.
+
+#exemplo:
+
+class Animal:
+    def __init__(self, nome):
+        self.nome = nome
+    
+    def fazer_som(self):
+        pass
+
+class Cachorro(Animal):
+    def fazer_som(self):
+        return "Au au!"
+
+class Gato(Animal):
+    def fazer_som(self):
+        return "Miau!"
+
+# Criando uma lista de animais
+animais = [Cachorro("Rex"), Gato("Mimi")]
+
+# Percorrendo a lista e chamando o método fazer_som de cada animal
+for animal in animais:
+    print(animal.nome + ": " + animal.fazer_som())
+
+#A saída será:
+#Rex: Au au!
+#Mimi: Miau!
