@@ -18,6 +18,8 @@
 # readline: permite ler uma linha do arquivo
 # close: utilizado para fechar um arquivo.
 
+import os
+
 dados = open("dialogo.txt")
 print(dados.readline(), end="")
 dados.close
@@ -34,3 +36,44 @@ for cada_linha in dados:
 
 if os.path.exist("dialogo.txt"):
     dados=open("dialogo.txt")
+
+#Escrevendo em um arquivo existente:
+
+#Write
+
+#dados=open("teste.txt", "a“ ) Esse parâmetro pode ser “w”: Substituindo o conteúdo existente. “a”: escrevendo no final do arquivo. “r”: apenas para leitura
+#dados.write("\nsonhos") O \n é utilizado para quebra de linha.
+#dados.close()
+
+
+#Atividade do slide:
+
+#Solicita o número de entrevistados
+num_entrevistados = int(input("Digite o número de entrevistados: "))
+
+#Cria uma lista vazia para armazenar as respostas
+respostas = []
+
+#Loop para solicitar as respostas de cada entrevistado
+for i in range(num_entrevistados):
+    print("Entrevistado", i+1)
+    nome = input("Digite o nome: ")
+    idade = input("Digite a idade: ")
+    profissao = input("Digite a profissão: ")
+    respostas.append((nome, idade, profissao))
+
+#Abre o arquivo para escrita
+with open("respostas.txt", "w") as arquivo:
+    #Escreve as respostas no arquivo
+    for resposta in respostas:
+        arquivo.write(resposta[0] + "," + resposta[1] + "," + resposta[2] + "\n")
+
+#Abre o arquivo para leitura
+with open("respostas.txt", "r") as arquivo:
+    #Lê as linhas do arquivo e imprime na tela
+    for linha in arquivo:
+        dados = linha.strip().split(",")
+        print("Nome:", dados[0])
+        print("Idade:", dados[1])
+        print("Profissão:", dados[2])
+        print("--------------------")
