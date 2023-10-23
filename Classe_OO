@@ -1,0 +1,139 @@
+#Classes e subclasses(herança)
+
+#A Herança é um mecanismo para estender as classes existentes adicionando métodos e campos.
+
+#Superclasse e subclasse:
+
+#Superclasse: É a classe mais geral.
+#Subclasse: É a classe mais especializada que herda atributos e métodos da superclasse.
+
+#exemplo:
+
+#Animal: superclasse
+#Cachorro, gato e coelho: subclasse
+
+#No cogigo a seguir, criei um herança, onde as subclasses cachorro, gato e coelho erdam a superclasse Animal.
+
+class Animal():
+    def __init__(self, nome, cor):
+        self.__nome = nome
+        self.__cor = cor
+
+    def comer(self):
+        print(f"O {self.__nome} está comendo")
+
+
+class Cachorro(Animal):
+    def __init__(self, nome, cor):
+        super().__init__(nome, cor)
+
+class Gato(Animal):
+    def __init__(self, nome, cor):
+        super().__init__(nome, cor)
+
+class Coelho(Animal):
+    def __init__(self, nome, cor):
+        super().__init__(nome, cor)
+
+cachorro = Cachorro("Rex", "Branco")
+gato = Gato("Stive", "Preto")
+coelho = Coelho("Pernalonga", "Branco")
+
+cachorro.comer()
+gato.comer()
+coelho.comer()
+
+#Ao execultar esse código, aparecerar as seguintes mensagens:
+#O Rex está comendo
+#O Stive está comendo
+#O Pernalonga está comendo
+
+
+#A seguir, disponibilizo outro código com a suplerclasse Veiculo:
+
+class Veiculo:
+    def __init__(self, marca, modelo):
+        self.marca = marca
+        self.modelo = modelo
+
+    def acelerar(self):
+        print("Acelerando o veículo")
+
+    def frear(self):
+        print("Freando o veículo")
+
+class Carro(Veiculo):
+    def __init__(self, marca, modelo, cor):
+        super().__init__(marca, modelo)
+        self.cor = cor
+
+    def abrir_porta(self):
+        print("Abrindo a porta do carro")
+
+    def ligar_radio(self):
+        print("Ligando o rádio do carro")
+
+#Criação de um objeto da classe Carro
+meu_carro = Carro("Ford", "Fiesta", "Vermelho")
+
+#Chamada dos métodos da classe Veiculo
+meu_carro.acelerar()
+meu_carro.frear()
+
+#Chamada dos métodos da classe Carro
+meu_carro.abrir_porta()
+meu_carro.ligar_radio()
+
+#A saída do código será:
+#Acelerando o veículo
+#Freando o veículo
+#Abrindo a porta do carro
+#Ligando o rádio do carro
+
+#A seguir, mais um código, dessa vez com a superclasse IFRN:
+
+class IFRN:
+    def __init__(self, nome, endereco):
+        self.nome = nome
+        self.endereco = endereco
+
+    def apresentar(self):
+        print(f"O nome do IFRN é {self.nome}")
+        print(f"O endereço do IFRN é {self.endereco}")
+
+    def matricular(self, aluno):
+        print(f"Matriculando o aluno {aluno}")
+
+class Campus(IFRN):
+    def __init__(self, nome, endereco, curso):
+        super().__init__(nome, endereco)
+        self.curso = curso
+
+    def apresentar(self):
+        super().apresentar()
+        print(f"O curso do campus é {self.curso}")
+
+    def realizar_prova(self):
+        print(f"Realizando prova do curso {self.curso}")
+
+#Criação de um objeto da classe Campus
+meu_campus = Campus("IFRN - Campus Ceará-Mirim", "Av. Planalto, 406  - Ceará-Mirim - RN", "Técnico em Informática")
+
+#Chamada dos métodos da classe IFRN
+meu_campus.apresentar()
+meu_campus.matricular("Leanderson")
+
+#Chamada dos métodos da classe Campus
+meu_campus.realizar_prova()
+
+#A saída do código será:
+#O nome do IFRN é IFRN - Campus Ceará-Mirim
+#O endereço do IFRN é Av. Planalto, 406  - Ceará-Mirim - RN
+#O curso do campus é Técnico em Informática
+#Matriculando o aluno Leanderson
+#Realizando prova do curso Técnico em Informática
+
+
+
+
+    
